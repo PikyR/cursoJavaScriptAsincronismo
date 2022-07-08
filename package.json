@@ -10,5 +10,8 @@
     "javascript"
   ],
   "author": "PikyR",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
 }
