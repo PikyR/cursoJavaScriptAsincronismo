@@ -18,6 +18,8 @@ const otherFetchData = async (urlApi) => {
     const productCategoryID = product.category.id;
     const category = await fetchData(`${urlApi}/categories/${productCategoryID}`);
 
+    console.log('tipo: ', typeof(products));
+    console.log('Es array: ', Array.isArray(products));
     console.log('Cantidad de producos: ', products.length);
     console.log('Producto: ',product.title);
     console.log('Categoria: ',category.name);
