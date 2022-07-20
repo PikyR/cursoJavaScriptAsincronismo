@@ -1,4 +1,20 @@
 extends components/templates.pug
 
 block content 
-  h1 Hola mundo
+  main.main-container
+    secttion.about 
+      .about__content 
+        h1.about__name Piky Ramos
+        a(href="#").about__handle @pikyR
+        p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur molestiae dolor accusamus veritatis beatae, animi qui cupiditate et dolorem nulla illo commodi, iure magnam repellat. Voluptatum vel vitae suscipit modi.
+      
+      // image
+      picture.about__image-container 
+        img(src="#", alt="About image")
+      
+    // poosts
+    section.posts 
+      h2.posts__title Last Posts 
+
+      .post 
+        h3 Post
