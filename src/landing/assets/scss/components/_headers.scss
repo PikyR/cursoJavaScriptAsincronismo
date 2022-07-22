@@ -1,0 +1,41 @@
+.header {
+  &__container {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    height: 70px;
+  }
+
+  &__logo {    
+    width: 5rem;
+    height: 5rem;    
+  }  
+  &__menu {
+    // display: flex;
+    // align-items: center;
+    margin-inline: 2rem;
+  }
+  &__links {
+    display: flex;
+
+    & li {
+      list-style-type: none;
+    }
+  }
+
+  &__link {
+    // reset
+    text-decoration: none;
+    color: $color-dark-gray;
+    // 
+    
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    font-weight: 600;
+
+    &--active {      
+      color: $color-link;
+      border-bottom: 3px solid $color-link;
+    }
+  }
+}

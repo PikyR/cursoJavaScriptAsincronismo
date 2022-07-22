@@ -1,3 +1,19 @@
+// Colors palette
+$color-white: #fff;
+$color-white-gray: #e5e7eb;
+$color-link: #4f46e5;
+$color-dark-gray: #6b7280;
+$color-dark: #111827;
+$color-blak: #111;
+
+$font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+$sm: 1.4rem;
+$md: 1.6rem;
+$lg: 1.8rem;
+$xl: 2.6rem;
+$xl: 3.2rem;
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +25,15 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
-  background-color: beige;
+  background-color: $color-white;
+
+  font-family: $font;
+  font-size: $md;
+}
+
+.main-container {
+  max-width: 90%;
+  min-width: 320px;
+  margin: 0 auto;
+  padding-inline: 1.6rem;
 }
