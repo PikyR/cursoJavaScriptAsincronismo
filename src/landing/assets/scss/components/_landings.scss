@@ -1,0 +1,78 @@
+// content - main section
+
+//mixins
+@mixin content-text-format($color: $color-dark) {
+  display: inline;
+  font-size: $xxxl;
+  font-weight: 900;
+  color: $color;
+}
+
+.content-container {
+  width: 100%;
+  max-width: $width-max;
+
+  padding-inline-start: 3rem;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+
+  // content section
+  &__content {
+    min-width: 320px;
+    width: 700px;
+    padding-inline-end: 1.2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & p {
+      margin-block-start: $lg;
+      color: $color-dark-gray;
+      font-size: $lg;
+    }
+  }
+  &__name {
+    @include content-text-format();
+  }
+  &__handle {
+    @include content-text-format($color-link);
+    text-decoration: none;
+    margin-top: -1rem;
+  }
+
+  // content image
+  &__image-container {
+    height: 100%;
+    position: relative;
+    & img {
+      
+      max-width: 600px;
+      position: relative;
+      // z-index: 10;
+
+      &::before{
+        content: 'cpsp';
+        display: inline-block;
+        position: relative; 
+        position: absolute;
+        left: 500px;
+        
+  
+        width: 20px;
+        height: 120%;
+        background-color: $color-dark-gray;
+      }
+    }
+  }
+}
+
+.posts {
+  &__title {
+  }
+}
+
+// .post {}
