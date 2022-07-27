@@ -1,4 +1,5 @@
 // content - main section
+$about-image-url: 'https://i.picsum.photos/id/1018/3914/2935.jpg?hmac=3N43cQcvTE8NItexePvXvYBrAoGbRssNMpuvuWlwMKg';
 
 //mixins
 @mixin content-text-format($color: $color-dark) {
@@ -12,17 +13,18 @@
   width: 100%;
   max-width: $width-max;
 
-  padding-inline-start: 3rem;
+  padding-inline-start: 3rem;  
 }
 
 .about {
+  height: calc(100vh - $header-height);
   display: flex;
   justify-content: space-between;
 
   // content section
   &__content {
     min-width: 320px;
-    width: 700px;
+    width: 100%;
     padding-inline-end: 1.2rem;
 
     display: flex;
@@ -46,32 +48,21 @@
 
   // content image
   &__image-container {
+    width: 100%;
     height: 100%;
-    position: relative;
-    & img {
-      
-      max-width: 600px;
-      position: relative;
-      // z-index: 10;
-
-      &::before{
-        content: 'cpsp';
-        display: inline-block;
-        position: relative; 
-        position: absolute;
-        left: 500px;
-        
-  
-        width: 20px;
-        height: 120%;
-        background-color: $color-dark-gray;
-      }
-    }
+    
+    clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
+    background-image: url("https://i.picsum.photos/id/1018/3914/2935.jpg?hmac=3N43cQcvTE8NItexePvXvYBrAoGbRssNMpuvuWlwMKg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 }
 
 .posts {
   &__title {
+    font-size: $xl;
+    font-weight: 900;
   }
 }
 

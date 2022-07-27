@@ -1,6 +1,8 @@
+$header-height: 7rem;
+
 .header {
   &__container {
-    height: 70px;
+    height: $header-height;
     width: 100%;
     max-width: $width-max;
     padding-inline: 3rem;
