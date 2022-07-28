@@ -9,4 +9,4 @@
 ![preview](https://raw.githubusercontent.com/PikyR/cursoJavaScriptAsincronismo/main/src/landing/assets/images/LandingPreview.jpg)
 
 ---
-[@PikyR 👺](https://pikyr.github.io/cursoJavaScriptAsincronismo/src/landing/index.html)
+[@PikyR 👺](https://github.com/PikyR)
