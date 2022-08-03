@@ -64,6 +64,7 @@ body {
 
 .about {
   height: calc(100vh - 7rem);
+  max-height: 900px;
   display: flex;
   justify-content: space-between;
 }
@@ -104,9 +105,40 @@ body {
   background-size: cover;
 }
 
-.posts__title {
+.videos__title {
+  padding: 2rem;
   font-size: 2.6rem;
   font-weight: 900;
+}
+.videos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.video {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 2rem;
+}
+.video__thumbnail img {
+  width: 100%;
+  overflow: hidden;
+  border-bottom-left-radius: 2rem;
+}
+.video__description {
+  padding-inline: 1.6rem;
+  color: #111827;
+  font-size: 1.4rem;
+  color: #6b7280;
+}
+.video:hover {
+  outline: 1px solid #4f46e5;
+  cursor: pointer;
 }
 
 .footer {

@@ -18,6 +18,7 @@ $about-image-url: 'https://i.picsum.photos/id/1018/3914/2935.jpg?hmac=3N43cQcvTE
 
 .about {
   height: calc(100vh - $header-height);
+  max-height: 900px;
   display: flex;
   justify-content: space-between;
 
@@ -59,11 +60,55 @@ $about-image-url: 'https://i.picsum.photos/id/1018/3914/2935.jpg?hmac=3N43cQcvTE
   }
 }
 
-.posts {
+.videos { 
+
   &__title {
+    padding: 2rem;
     font-size: $xl;
-    font-weight: 900;
+    font-weight: 900;    
+  }
+  
+  &__grid{
+    display: grid;    
+    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+    justify-content: center;
+    gap: 2rem;
+
+    padding-bottom: 2rem;
   }
 }
 
-// .post {}
+.video {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+
+  
+  overflow: hidden;
+  
+  border-radius: 2rem;
+  
+
+  &__thumbnail {    
+    & img{
+      width: 100%;
+
+      overflow: hidden;
+      border-bottom-left-radius: 2rem;
+    }
+  }
+
+  &__description {
+    padding-inline: 1.6rem;
+    color: $color-dark;
+    font-size: $sm;    
+    color: $color-dark-gray;
+  }
+
+  &:hover {
+    outline: 1px solid $color-link;
+    cursor: pointer;
+  }
+}
+
+

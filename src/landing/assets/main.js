@@ -1,4 +1,4 @@
-const API = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=FLV0gFdtCZ_I7FzUZ16MErow&part=snippet&maxResults=2';
+const API = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=FLV0gFdtCZ_I7FzUZ16MErow&part=snippet&maxResults=6';
 
 const content = null || document.getElementById('content');
 
@@ -15,8 +15,6 @@ const options = {
 // 	.then(response => console.log(response))
 // 	.catch(err => console.error(err));
 
-
-
 async function fetchData(urlApi) {
   const response = await fetch(urlApi, options);
   const data = await response.json();
@@ -26,25 +24,26 @@ async function fetchData(urlApi) {
 (async () => {
   try {
     const videos = await fetchData(API);
+    const copiaVideos = videos;
+    console.log(copiaVideos);
 
     let view = `
-      ${videos.items.map(video => `
-        <div> 
-          <div>
-            <img src="${video.snipet.thumbnail.high.url}" alt="${video.snippet.description}">
-          </div>
-        
-          <div>
-            <h3>
-              <span>?</span>
-              ${video.title}
-            </h3>
-          </div>
-        </div>
-      `).slice(0,4).join('')}
-      
-    `;
-  } catch {
+      ${copiaVideos.items.map(video => `
+        <div class="video"> 
+          <section class="video__thumbnail">
+            <img src="${video.snippet.thumbnails.high.url}" alt="Video thumbnail">
+          </section>
 
+          <section class="video__description">
+            <h3>
+              ${video.snippet.title}
+            </h3>            
+          </section>
+        </div>
+      `).slice(0,6).join('')}      
+    `;
+    content.innerHTML = view;
+  } catch(error) {
+    console.log(error);
   }
 })();
