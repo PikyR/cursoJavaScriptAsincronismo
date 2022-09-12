@@ -1,13 +1,15 @@
-const API = 'https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=FLV0gFdtCZ_I7FzUZ16MErow&part=snippet&maxResults=6';
+const API =
+  "https://youtube-v31.p.rapidapi.com/playlistItems?playlistId=FLV0gFdtCZ_I7FzUZ16MErow&part=snippet&maxResults=6";
 
-const content = null || document.getElementById('content');
+const content = null || document.getElementById("content");
+
 
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'd1084cdd1dmsh1af234db69288fep1029f3jsna7e7b7f57b7b',
-		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
-	}
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "d1084cdd1dmsh1af234db69288fep1029f3jsna7e7b7f57b7b",
+    "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
+  },
 };
 
 // fetch('', options)
@@ -16,34 +18,55 @@ const options = {
 // 	.catch(err => console.error(err));
 
 async function fetchData(urlApi) {
-  const response = await fetch(urlApi, options);
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(urlApi, options);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log('Error name:', error.name);
+    console.log('Error message:', error.message);
+    alert(error);
+  }
 }
 
-(async () => {
-  try {
-    const videos = await fetchData(API);
-    const copiaVideos = videos;
-    console.log(copiaVideos);
+function renderVideos(thumbnailURL, title) {
+  const article = document.createElement("article");
+  article.classList.add("video");
+  // contiene image
+  const sectionThumbnail = document.createElement("section");
+  sectionThumbnail.classList.add("video__thumbnail");
 
-    let view = `
-      ${copiaVideos.items.map(video => `
-        <div class="video"> 
-          <section class="video__thumbnail">
-            <img src="${video.snippet.thumbnails.high.url}" alt="Video thumbnail">
-          </section>
+  const image = document.createElement("img");
+  image.src = thumbnailURL;
 
-          <section class="video__description">
-            <h3>
-              ${video.snippet.title}
-            </h3>            
-          </section>
-        </div>
-      `).slice(0,6).join('')}      
-    `;
-    content.innerHTML = view;
-  } catch(error) {
-    console.log(error);
-  }
-})();
+  sectionThumbnail.appendChild(image);
+  //
+  // contiene title
+  const sectionTitle = document.createElement("section");
+  sectionTitle.classList.add("video__description");
+
+  const titleH3 = document.createElement("h3");
+  const titleText = document.createTextNode(title);
+
+  titleH3.appendChild(titleText);
+  sectionTitle.appendChild(titleH3);
+  //
+
+  article.append(sectionThumbnail, sectionTitle);
+  content.appendChild(article);
+}
+
+async function loadVideos() {
+  const videos = await fetchData(API);
+  const videosItems = videos.items;
+  
+  content.innerHTML = "";
+
+  videosItems.map((video) => {
+    renderVideos(video.snippet.thumbnails.high.url, video.snippet.title);
+  });
+}
+
+loadVideos();
+
